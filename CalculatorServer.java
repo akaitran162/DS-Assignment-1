@@ -3,6 +3,11 @@ import java.rmi.registry.LocateRegistry;
 
 public class CalculatorServer {
     public static void main(String[] args) {
+        CalculatorServer server = new CalculatorServer();
+        server.run();
+    }
+
+    public void run() {
         try {
             Registry registry = LocateRegistry.createRegistry(1099);
 
@@ -17,5 +22,6 @@ public class CalculatorServer {
         } catch (Exception e) {
             System.out.println("Calculator Server failed: " + e);
         }
+
     }
 }

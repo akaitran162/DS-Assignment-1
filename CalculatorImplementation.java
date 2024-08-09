@@ -43,10 +43,12 @@ public class CalculatorImplementation extends UnicastRemoteObject implements Cal
         if (serverStack.isEmpty()) {
             throw new IllegalStateException("The stack is empty!");
         }
+        System.out.println("Popped value: " + serverStack.peek());
         return serverStack.pop();
     }
     @Override
     public boolean isEmpty() throws RemoteException {
+        System.out.println("Stack is empty: " + serverStack.isEmpty());
         return serverStack.isEmpty();
     }
     @Override
@@ -57,6 +59,7 @@ public class CalculatorImplementation extends UnicastRemoteObject implements Cal
         catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("Delay popped value: " + serverStack.peek());
         return serverStack.pop();
     }
     private int lcm(Stack<Integer> serverStack) {
