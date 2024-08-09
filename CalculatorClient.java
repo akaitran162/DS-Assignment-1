@@ -51,7 +51,6 @@ public class CalculatorClient {
 
                 case "isempty":
                     return stub.isEmpty() ? "Stack is empty." : "Stack is not empty.";
-
                 default:
                 return "Wrong input! Please try again.";
             }

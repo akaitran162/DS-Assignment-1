@@ -1,9 +1,8 @@
-import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Stack;
 
-public class CalculatorImplementation extends UnicastRemoteObject implements Calculator, Serializable {
+public class CalculatorImplementation extends UnicastRemoteObject implements Calculator{
     private Stack<Integer> serverStack;
 
     protected CalculatorImplementation() throws RemoteException {
