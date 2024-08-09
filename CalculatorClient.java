@@ -20,33 +20,37 @@ public class CalculatorClient {
     }
     public static String get_response(String input, Calculator stub) {
         try {
+
+            Scanner scanner;
             switch (input) {
                 case "pop":
                     return String.valueOf(stub.pop());
 
                 case "pushvalue":
-                    Scanner scanner = new Scanner(System.in);
+                    scanner = new Scanner(System.in);
                     Integer value = Integer.parseInt(scanner.nextLine());
-                    scanner.close();    
+                    scanner.close();
                     stub.pushValue(value);
                     return "Value pushed!";
 
                 case "pushoperation":
-                    Scanner scanner = new Scanner(System.in);
-                    String value = scanner.nextLine();
+                    scanner = new Scanner(System.in);
+                    System.out.println("Enter an operation: min, max, lcm, gcd");
+                    String operation = scanner.nextLine();
                     scanner.close();
-                    stub.pushOperation(input);
-                    return 
+                    stub.pushOperation(operation);
+                    return "Operation pushed and processed!";
 
                 case "delaypop":
+                    scanner = new Scanner(System.in);
+                    System.out.println("Enter the delay in milliseconds: ");
+                    int delay = Integer.parseInt(scanner.nextLine());
+                    scanner.close();
+                    int delayedValue = stub.delayPop(delay);
+                    return "Delayed pop returned: " + delayedValue;
 
                 case "isempty":
-                    Scanner scanner = new Scanner(System.in);
-                    Integer value = Integer.parseInt(scanner.nextLine());
-                    scanner.close();    
-                    stub.isEmpty();
-                    return "";
-
+                    return stub.isEmpty() ? "Stack is empty." : "Stack is not empty.";
 
                 default:
                 return "Wrong input! Please try again.";
